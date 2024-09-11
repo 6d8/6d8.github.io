@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Site Blocked</title>
+	</head>
+	
+	<style>
+		body {
+			background: #222;
+			color: #bbb;
+			font: normal 16px "Open Sans", Arial, sans-serif;
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			margin-top: 30vh;
+		}
+		h1 {
+			font-size: 24px;
+			font-weight: 300;
+		}
+		a {
+			color: #2ca089;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	</style>
+
+	<body>
+
+		<!-- warning message -->
+		<div>
+			<h1>
+				<a id="lbBlockedURLLink" target="_self">The page</span></a>
+				 you're trying to access has been blocked<span style="display:none;"> (Set <span id="lbBlockedSet">Block Set</span>)</span>.
+			</h1>
+			
+		</div>
+
+		<script>
+  	    	let urlString = window.location.href;
+        	let paramString = urlString.split(/\?(.*)/s)[1];
+        	let paramList = paramString.split('&');
+        	console.log(paramList);
+    		document.getElementById('lbBlockedSet').innerHTML = paramList[0];
+    		document.getElementById('lbBlockedURLLink').href = paramList[1];
+		</script>
+
+	</body>
+
+</html>
